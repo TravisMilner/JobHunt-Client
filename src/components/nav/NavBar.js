@@ -9,10 +9,10 @@ export const NavBar = (props) => {
                 <Link className = "nav-link" to= "/">Home</Link>
             </li>
             <li className="navbar__item">
-                <Link className = "nav-link" to= "/profile">Companies</Link>
+                <Link className = "nav-link" to= "/companies">Companies</Link>
             </li>
             <li className="navbar__item">
-                <Link className="nav-link" to= "/events">Contacts</Link>
+                <Link className="nav-link" to= "/contacts">Contacts</Link>
             </li>
             {
                 (localStorage.getItem("jh_token") !== null) ?
