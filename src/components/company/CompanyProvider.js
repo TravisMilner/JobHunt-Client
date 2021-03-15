@@ -15,13 +15,26 @@ export const CompanyProvider = (props) => {
         .then(setCompanies)
     }
 
+    const createCompany = (company) => {
+        return fetch("http://localhost:8000/companies", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("jh_token")}`
+            },
+            body: JSON.stringify(company)
+        })
+        .then(res => res.json())
+        .then(getCompanies)
+    }
+
 
 
 
 
 
     return(
-        <CompanyContext.Provider value = {{company, getCompanies}} >
+        <CompanyContext.Provider value = {{company, getCompanies, createCompany}} >
             {props.children}
         </CompanyContext.Provider>
     )
