@@ -8,7 +8,7 @@ export const JobProvider = (props) => {
     const getJobs = () => {
         return fetch("http://localhost:8000/jobs", {
             headers: {
-                "Authorization": `Token ${localStorage.getItem("lu_token")}`
+                "Authorization": `Token ${localStorage.getItem("jh_token")}`
             }
         })
         .then(res => res.json())
