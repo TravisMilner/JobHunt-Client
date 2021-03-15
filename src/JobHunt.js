@@ -11,7 +11,7 @@ function JobHunt() {
         <Route render={() => {
             if (localStorage.getItem("jh_token")) {
                 return <>
-                    <Route exact path="/" render= {props => <NavBar {...props} />}>
+                    <Route path="/" render= {props => <NavBar {...props} />}>
                         
 
 
