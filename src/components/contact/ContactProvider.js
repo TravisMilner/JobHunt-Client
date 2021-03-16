@@ -21,7 +21,8 @@ export const ContactProvider = (props) => {
             headers: {
                 "Content-Type": "application/json",
                 "Authorization": `Token ${localStorage.getItem("jh_token")}`
-            }
+            },
+            body: JSON.stringify(contact)
         })
         .then(res => res.json())
         .then(getContacts)
