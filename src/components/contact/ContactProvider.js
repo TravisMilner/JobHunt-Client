@@ -11,7 +11,7 @@ export const ContactProvider = (props) => {
                 "Authorization": `Token ${localStorage.getItem("jh_token")}`
             }
         })
-        .then(res => res.json)
+        .then(res => res.json())
         .then(setContacts)
     }
 
@@ -23,7 +23,7 @@ export const ContactProvider = (props) => {
                 "Authorization": `Token ${localStorage.getItem("jh_token")}`
             }
         })
-        .then(res => res.json)
+        .then(res => res.json())
         .then(getContacts)
     }
 
