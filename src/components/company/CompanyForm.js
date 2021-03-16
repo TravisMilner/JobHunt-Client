@@ -18,7 +18,7 @@ export const CompanyForm = () => {
     }
 
     return (
-        <form classname = "companyForm">
+        <form className = "companyForm">
             <h2 className = "companyForm__title">Add New Company</h2>
             <fieldset>
                 <div className="form-group">
