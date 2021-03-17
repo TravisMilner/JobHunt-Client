@@ -31,6 +31,10 @@ export const JobList = (props) => {
                         <button className = "deleteJob" onClick = {() => {
                             deleteJob(job.id)
                         }}>Delete Application</button>
+                        <button className = "editJob" onClick = {() => {
+                            console.log(props)
+                            history.push({pathname: `/jobs/${job.id}`})
+                        }}>Edit Application</button>
                     </section>
                 })
             }

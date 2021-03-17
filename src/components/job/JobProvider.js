@@ -49,10 +49,31 @@ export const JobProvider = (props) => {
         .then(getJobs)
     }
 
+    const editJob = (jobObj) => {
+        return fetch(`http://localhost:8000/jobs/${jobObj.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("jh_token")}`
+            },
+            body: JSON.stringify(jobObj)
+        })
+        .then(getJobs)
+    }
+
+    const getJobById = (id) => {
+        return fetch(`http://localhost:8000/jobs/${id}`, {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("jh_token")}`
+            }
+        })
+        .then(res => res.json())
+    }
+
 
 
     return(
-        <JobContext.Provider value = {{ jobs, getJobs, createJob, getStatus, status, deleteJob}} >
+        <JobContext.Provider value = {{ jobs, getJobs, createJob, getStatus, status, deleteJob, editJob, getJobById}} >
             {props.children}
         </JobContext.Provider>
     )

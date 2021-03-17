@@ -30,6 +30,9 @@ export const ContactList = (props) => {
                             <button className = "deleteContact" onClick = {() => {
                                 deleteContact(c.id)
                             }}>Delete Contact</button>
+                            <button className= "editContact" onClick = {() => {
+                                history.push(`/contacts/${c.id}`)
+                            }}>Edit Contact</button>
                     </section>
                 })
             }

@@ -38,13 +38,35 @@ export const CompanyProvider = (props) => {
         .then(getCompanies)
     }
 
+    const getCompanyById = (id) => {
+        return fetch(`http://localhost:8000/companies/${id}`, {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("jh_token")}`
+            }
+        })
+        .then(res => res.json())
+    }
+
+    const editCompany = (compObj) => {
+        return fetch(`http://localhost:8000/companies/${compObj.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("jh_token")}`
+            },
+            body: JSON.stringify(compObj)
+        })
+        .then(getCompanies)
+        
+    }
+
 
 
 
 
 
     return(
-        <CompanyContext.Provider value = {{company, getCompanies, createCompany, deleteCompany}} >
+        <CompanyContext.Provider value = {{company, getCompanies, createCompany, deleteCompany, getCompanyById, editCompany}} >
             {props.children}
         </CompanyContext.Provider>
     )

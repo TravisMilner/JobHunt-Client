@@ -28,6 +28,9 @@ export const CompanyList = (props) => {
                         <button className = "deleteCompany" onClick = {() => {
                             deleteCompany(c.id)
                         }}>Delete Company</button>
+                        <button className = "editCompany" onClick = {() => {
+                            history.push(`/companies/${c.id}`)
+                        }}>Edit Company</button>
                         
                     </section>
                 })
