@@ -28,13 +28,23 @@ export const CompanyProvider = (props) => {
         .then(getCompanies)
     }
 
+    const deleteCompany = (companyId) => {
+        return fetch(`http://localhost:8000/companies/${companyId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("jh_token")}`
+            }
+        })
+        .then(getCompanies)
+    }
+
 
 
 
 
 
     return(
-        <CompanyContext.Provider value = {{company, getCompanies, createCompany}} >
+        <CompanyContext.Provider value = {{company, getCompanies, createCompany, deleteCompany}} >
             {props.children}
         </CompanyContext.Provider>
     )
