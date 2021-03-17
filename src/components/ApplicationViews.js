@@ -4,6 +4,7 @@ import { CompanyEdit } from "./company/CompanyEdit"
 import { CompanyForm } from "./company/CompanyForm"
 import { CompanyList } from "./company/CompanyList"
 import { CompanyProvider } from "./company/CompanyProvider"
+import { ContactEdit } from "./contact/ContactEdit"
 import { ContactList } from "./contact/ContactList"
 import { ContactForm } from "./contact/ContactForm"
 import {  ContactProvider } from "./contact/ContactProvider"
@@ -39,6 +40,7 @@ export const ApplicationViews = () => {
            <Route exact path = "/contacts/new">
               <ContactForm />
            </Route>
+           <Route exact path = "/contacts/:cId(\d+)" render = {props => <ContactEdit {...props} />} />
         </ContactProvider>
     
     
