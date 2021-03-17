@@ -3,7 +3,7 @@ import { JobContext } from "./JobProvider.js"
 import {useHistory} from "react-router-dom"
 
 export const JobList = (props) => {
-    const {jobs, getJobs} = useContext(JobContext)
+    const {jobs, getJobs, deleteJob} = useContext(JobContext)
     const history = useHistory()
 
     useEffect(() => {
@@ -28,6 +28,9 @@ export const JobList = (props) => {
                         <div className = "job__status">Status: {job.status.label}</div>
                         <div className = "job__notes"> Notes: {job.notes} </div>
                         <div className = "job__link"> Link: {job.link}</div>
+                        <button className = "deleteJob" onClick = {() => {
+                            deleteJob(job.id)
+                        }}>Delete Application</button>
                     </section>
                 })
             }

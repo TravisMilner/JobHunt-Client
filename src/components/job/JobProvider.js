@@ -39,10 +39,20 @@ export const JobProvider = (props) => {
         .then(setStatuses)
     }
 
+    const deleteJob = (jobId) => {
+        return fetch(`http://localhost:8000/jobs/${jobId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("jh_token")}`
+            }
+        })
+        .then(getJobs)
+    }
+
 
 
     return(
-        <JobContext.Provider value = {{ jobs, getJobs, createJob, getStatus, status}} >
+        <JobContext.Provider value = {{ jobs, getJobs, createJob, getStatus, status, deleteJob}} >
             {props.children}
         </JobContext.Provider>
     )

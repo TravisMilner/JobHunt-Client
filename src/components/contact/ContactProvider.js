@@ -28,8 +28,18 @@ export const ContactProvider = (props) => {
         .then(getContacts)
     }
 
+    const deleteContact = (contactId) => {
+        return fetch(`http://localhost:8000/contacts/${contactId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("jh_token")}`
+            }
+        })
+        .then(getContacts)
+    }
+
     return(
-        <ContactContext.Provider value = {{contacts, getContacts, createContact}} >
+        <ContactContext.Provider value = {{contacts, getContacts, createContact, deleteContact}} >
             {props.children}
         </ContactContext.Provider>
     )
