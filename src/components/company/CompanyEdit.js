@@ -22,6 +22,10 @@ export const CompanyEdit = (props) => {
         setCurrentCompany(newCompanyState)
     }
 
+    if(currentCompany.user !== localStorage.getItem("jh_token")) {
+        return(<h2>Cant do that. go back</h2>)
+    }else {
+
     return (
         <form className = "companyForm">
             <h2 className = "companyForm__title">Add New Company</h2>
@@ -50,4 +54,5 @@ export const CompanyEdit = (props) => {
                 className= "companySaveButton">Save Company</button>
         </form>
     )
+            }
 }
