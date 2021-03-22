@@ -42,6 +42,7 @@ export const JobForm = () => {
                         <option>Application Status Selection...</option>
                         {
                             status.map(s => <option key = {s.id} value = {s.id}>{s.label}</option>)
+                            
                         }
                     </select>
                     <label htmlFor="notes">Notes:</label>

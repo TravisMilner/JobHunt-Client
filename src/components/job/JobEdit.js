@@ -11,7 +11,10 @@ export const JobEdit = (props) => {
         date_of_app: "",
         status_id: "",
         notes: "",
-        link: ""
+        link: "",
+        user: {
+
+        }
 
     })
 
@@ -26,6 +29,10 @@ export const JobEdit = (props) => {
         newJobState[domEvent.target.name] = domEvent.target.value
         setCurrentJob(newJobState)
     }
+    console.log(currentJob)
+    if(currentJob.user.key !== localStorage.getItem("jh_token")){
+        return(<h2>Cant do that go back</h2>)
+    }else {
 
     return (
         <form className = "jobForm">
@@ -71,4 +78,5 @@ export const JobEdit = (props) => {
                 className = "jobCreate">Save Application</button>
         </form>
     )
+            }
 }

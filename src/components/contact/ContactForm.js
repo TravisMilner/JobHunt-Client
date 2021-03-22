@@ -19,6 +19,7 @@ export const ContactForm = () => {
         newContactState[domEvent.target.name] = domEvent.target.value
         setCurrentContact(newContactState)
     }
+    
 
     return (
         <form className = "contactForm">
@@ -56,4 +57,5 @@ export const ContactForm = () => {
 
         </form>
     )
+        
 }

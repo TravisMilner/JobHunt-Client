@@ -24,8 +24,10 @@ export const ContactEdit= (props) => {
         newContactState[domEvent.target.name] = domEvent.target.value
         setCurrentContact(newContactState)
     }
-
-    return (
+    if(currentContact.user !== localStorage.getItem("jh_token")) {
+        return(<h2>Can't do that. Please go back</h2>)
+    }
+    else {return (
         <form className = "contactForm">
             <h2 className = "contactForm__title">Add a new Contact</h2>
             <fieldset>
@@ -61,5 +63,5 @@ export const ContactEdit= (props) => {
             className = "contactButton">Save Contact</button>
 
         </form>
-    )
+    )}
 }
