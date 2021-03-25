@@ -22,24 +22,24 @@ export const ContactForm = () => {
     
 
     return (
-        <form className = "contactForm">
-            <h2 className = "contactForm__title">Add a new Contact</h2>
+        <form className = "form--login">
+            <h2 className = "contactForm__title">Add a New Contact</h2>
             <fieldset>
                 <div className = "form-group">
-                    <label htmlFor = "name">Name:</label>
-                    <input type = "text" name = "name" required autoFocus className = "form-control" value = {currentContact.name} onChange={changeContactState} />
-                    <label htmlFor = "company">Company:</label>
-                    <input type = "text" name = "company" required autoFocus className = "form-control" value = {currentContact.company} onChange={changeContactState} />
-                    <label htmlFor = "email">Email:</label>
-                    <input type = "text" name = "email" required autoFocus className = "form-control" value = {currentContact.email} onChange={changeContactState} />
-                    <label htmlFor = "phone_number">Phone Number:</label>
-                    <input type = "text" name = "phone_number" required autoFocus className = "form-control" value = {currentContact.phone_number} onChange={changeContactState} />
-                    <label htmlFor = "notes">Notes:</label>
-                    <textarea name = "notes" required autoFocus className = "form-control" value = {currentContact.notes} onChange={changeContactState} />
+                    
+                    <input placeholder="Name" type = "text" name = "name" required autoFocus className = "form-control" value = {currentContact.name} onChange={changeContactState} />
+                    
+                    <input placeholder="Company" type = "text" name = "company" required autoFocus className = "form-control" value = {currentContact.company} onChange={changeContactState} />
+                    
+                    <input placeholder="Email" type = "text" name = "email" required autoFocus className = "form-control" value = {currentContact.email} onChange={changeContactState} />
+                    
+                    <input placeholder = "Phone Number" type = "text" name = "phone_number" required autoFocus className = "form-control" value = {currentContact.phone_number} onChange={changeContactState} />
+                    
+                    <textarea placeholder = "Notes" id = "textField" name = "notes" required autoFocus className = "form-control" value = {currentContact.notes} onChange={changeContactState} />
                 </div>
             </fieldset>
 
-            <button type = "submit" onClick = {evt => {
+            <button  id = "newButton" type = "submit" onClick = {evt => {
                 evt.preventDefault()
 
                 const contact = {
@@ -53,7 +53,7 @@ export const ContactForm = () => {
                 createContact(contact)
                     .then(()=> history.push("/contacts"))
             }}
-            className = "contactButton">Save Contact</button>
+            className="btn btn-secondary">Save Contact</button>
 
         </form>
     )

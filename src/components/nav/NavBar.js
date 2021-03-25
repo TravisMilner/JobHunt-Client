@@ -5,6 +5,7 @@ import "./NavBar.css"
 export const NavBar = (props) => {
     return (
         <ul className="navbar">
+            <div id="navLogo"></div>
             <li className="navbar__item">
                 <Link className = "nav-link" to= "/">Home</Link>
             </li>
@@ -16,14 +17,14 @@ export const NavBar = (props) => {
             </li>
             {
                 (localStorage.getItem("jh_token") !== null) ?
-                    <li className="nav-item">
-                        <button className="nav-link fakeLink"
+                    
+                        <button className="btn btn-secondary" 
                             onClick={() => {
                                 localStorage.removeItem("jh_token")
                                 props.history.push({ pathname: "/" })
                             }}
                         >Logout</button>
-                    </li> :
+                    :
                     <>
                         <li className="nav-item">
                             <Link className="nav-link" to="/login">Login</Link>

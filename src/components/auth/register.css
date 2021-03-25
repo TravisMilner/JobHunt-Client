@@ -1,0 +1,21 @@
+.form--register {
+    border: 2px solid black;
+    margin: auto;
+    height: 500px;
+    width: 400px;
+    text-align: center;
+    margin-top: 50px;
+    line-height: 55px;
+    background: rgb(45, 43, 43);
+    color: white;
+    padding: 50px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4); 
+    border-radius: 15px;
+}
+
+input {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+}

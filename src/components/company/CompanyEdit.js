@@ -27,14 +27,14 @@ export const CompanyEdit = (props) => {
     }else {
 
     return (
-        <form className = "companyForm">
-            <h2 className = "companyForm__title">Add New Company</h2>
+        <form className = "form--login">
+            <h2 className = "companyForm__title">Edit Existing Company</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor = "name">Name of Company:</label>
+                    
                     <input type = "text" name = "name" required autoFocus className = "form-control" value = {currentCompany.name} onChange={changeCompanyState} />
-                    <label htmlFor = "notes">Notes:</label>
-                    <textarea name = "notes" required className = "form-control" value = {currentCompany.notes} onChange={changeCompanyState} />
+                    
+                    <textarea id = "textField" name = "notes" required className = "form-control" value = {currentCompany.notes} onChange={changeCompanyState} />
                 </div>
             </fieldset>
 
@@ -51,7 +51,7 @@ export const CompanyEdit = (props) => {
                     editCompany(company)
                         .then(() => history.push("/companies"))
                 }}
-                className= "companySaveButton">Save Company</button>
+                className="btn btn-secondary">Save Company</button>
         </form>
     )
             }

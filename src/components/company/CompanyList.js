@@ -1,10 +1,13 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState, useRef } from "react"
 import {CompanyContext} from "./CompanyProvider.js"
 import {useHistory} from "react-router-dom"
+import "../job/Job.css"
 
 export const CompanyList = (props) => {
     const {company, getCompanies, deleteCompany} = useContext(CompanyContext)
     const history = useHistory()
+    const [comp, setComp] = useState([])
+    const compo = useRef()
 
     useEffect(() => {
         getCompanies()
@@ -12,8 +15,8 @@ export const CompanyList = (props) => {
 
     return (
         <article className="companies">
-            <h1>My Companies</h1>
-            <button className="companyButton" onClick={() => {
+            <h1 id = "comp_head">My Companies</h1>
+            <button className= "btn btn-secondary" id = "comp__new" onClick={() => {
                 history.push({ pathname: "/companies/new"})
             }}>
                 Add New Company
@@ -24,17 +27,23 @@ export const CompanyList = (props) => {
                     return <section key = {`job--${c.id}`} className="job">
 
                         <div className = "company__name"><h2>{c.name}</h2></div>
-                        <div className = "job__notes">Notes: {c.notes}</div>
-                        <button className = "deleteCompany" onClick = {() => {
+                        <button className= "btn btn-secondary" value = {c.id} onClick = {() => {
+                            setComp(c)
+                            compo.current.showModal()
+                        }}>Notes</button>
+                        <button className= "btn btn-secondary"onClick = {() => {
                             deleteCompany(c.id)
                         }}>Delete Company</button>
-                        <button className = "editCompany" onClick = {() => {
+                        <button className= "btn btn-secondary" onClick = {() => {
                             history.push(`/companies/${c.id}`)
                         }}>Edit Company</button>
                         
                     </section>
                 })
             }
+            <dialog ref = {compo} className = "job__notes"> {comp.notes}<div><button onClick={() => {
+                compo.current.close()
+            }}>Close</button></div></dialog>
         </article>
     )
 }

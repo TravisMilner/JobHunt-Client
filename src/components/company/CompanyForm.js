@@ -5,6 +5,7 @@ import { CompanyContext } from "./CompanyProvider"
 export const CompanyForm = () => {
     const history = useHistory()
     const { createCompany } = useContext(CompanyContext)
+    
 
     const [currentCompany, setCurrentCompany] = useState({
         name: "",
@@ -18,14 +19,14 @@ export const CompanyForm = () => {
     }
 
     return (
-        <form className = "companyForm">
+        <form className = "form--login">
             <h2 className = "companyForm__title">Add New Company</h2>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor = "name">Name of Company:</label>
-                    <input type = "text" name = "name" required autoFocus className = "form-control" value = {currentCompany.name} onChange={changeCompanyState} />
-                    <label htmlFor = "notes">Notes:</label>
-                    <textarea name = "notes" required className = "form-control" value = {currentCompany.notes} onChange={changeCompanyState} />
+                    
+                    <input placeholder = "Company Name" type = "text" name = "name" required autoFocus className = "form-control" value = {currentCompany.name} onChange={changeCompanyState} />
+                    
+                    <textarea id = "textField" placeholder = "Notes" name = "notes" required className = "form-control" value = {currentCompany.notes} onChange={changeCompanyState} />
                 </div>
             </fieldset>
 
@@ -41,7 +42,7 @@ export const CompanyForm = () => {
                     createCompany(company)
                         .then(() => history.push("/companies"))
                 }}
-                className= "companySaveButton">Add Company</button>
+                className="btn btn-secondary">Add Company</button>
         </form>
     )
 }

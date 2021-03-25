@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react"
 import { useHistory } from 'react-router-dom'
 import {JobContext} from "./JobProvider.js"
+import "./Job.css"
 
 export const JobForm = () => {
     const history = useHistory()
@@ -12,6 +13,7 @@ export const JobForm = () => {
         status_id: "",
         notes: "",
         link: ""
+        
 
     })
 
@@ -26,29 +28,28 @@ export const JobForm = () => {
     }
 
     return (
-        <form className = "jobForm">
-            <h2 className = "jobForm__title">Add a new Application</h2>
+        <form className = "form--login">
+            <h2 className = "jobForm__title">Add a New Application</h2>
             <fieldset>
                 <div className = "form-group">
-                    <label htmlFor = "name">Name of Employer: </label>
-                    <input type = "text" name = "name" required autoFocus className = "form-control"
+                    
+                    <input placeholder ="Job Title" type = "text" name = "name" required autoFocus className = "form-control"
                         value = {currentJob.name}
                         onChange= {changeJobState}
                     />
-                    <label htmlFor = "date">Date:</label>
-                    <input type = "date" name = "date_of_app" required className = "form-control" value = {currentJob.date_of_app} onChange = {changeJobState} />
-                    <label htmlFor = "statusCategoryDrop">Status:</label>
-                    <select className = "statusCategoryDrop" onChange = {changeJobState} name = "status_id">
+                    
+                    <input placeholder = "Date of Application" type = "date" name = "date_of_app" required className = "form-control" value = {currentJob.date_of_app} onChange = {changeJobState} />
+                    
+                    <select id = "selectDrop" className = "statusCategoryDrop" onChange = {changeJobState} name = "status_id">
                         <option>Application Status Selection...</option>
                         {
                             status.map(s => <option key = {s.id} value = {s.id}>{s.label}</option>)
                             
                         }
                     </select>
-                    <label htmlFor="notes">Notes:</label>
-                    <textarea name = "notes" className = "form-control" value = {currentJob.notes} onChange = {changeJobState} />
-                    <label htmlFor = "link">Link:</label>
-                    <input type = "text" name = "link" required className = "form-control" value = {currentJob.link} onChange = {changeJobState} />
+                    
+                    <textarea placeholder = "Notes" name = "notes" className = "textarea" id = "textField"value = {currentJob.notes} onChange = {changeJobState} />
+                    
                 </div>
             </fieldset>
 
@@ -66,7 +67,7 @@ export const JobForm = () => {
                     createJob(job)
                         .then(() => history.push("/"))
                 }}
-                className = "jobCreate">Save Application</button>
+                className="btn btn-secondary">Save Application</button>
         </form>
     )
 }

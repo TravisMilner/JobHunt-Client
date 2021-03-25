@@ -28,24 +28,24 @@ export const ContactEdit= (props) => {
         return(<h2>Can't do that. Please go back</h2>)
     }
     else {return (
-        <form className = "contactForm">
+        <form className = "form--login">
             <h2 className = "contactForm__title">Add a new Contact</h2>
             <fieldset>
                 <div className = "form-group">
-                    <label htmlFor = "name">Name:</label>
+                    
                     <input type = "text" name = "name" required autoFocus className = "form-control" value = {currentContact.name} onChange={changeContactState} />
-                    <label htmlFor = "company">Company:</label>
+                    
                     <input type = "text" name = "company" required autoFocus className = "form-control" value = {currentContact.company} onChange={changeContactState} />
-                    <label htmlFor = "email">Email:</label>
+                    
                     <input type = "text" name = "email" required autoFocus className = "form-control" value = {currentContact.email} onChange={changeContactState} />
-                    <label htmlFor = "phone_number">Phone Number:</label>
+                    
                     <input type = "text" name = "phone_number" required autoFocus className = "form-control" value = {currentContact.phone_number} onChange={changeContactState} />
-                    <label htmlFor = "notes">Notes:</label>
-                    <textarea name = "notes" required autoFocus className = "form-control" value = {currentContact.notes} onChange={changeContactState} />
+                    
+                    <textarea id = "textField" name = "notes" required autoFocus className = "form-control" value = {currentContact.notes} onChange={changeContactState} />
                 </div>
             </fieldset>
 
-            <button type = "submit" onClick = {evt => {
+            <button id = "newButton" type = "submit" onClick = {evt => {
                 evt.preventDefault()
 
                 const contact = {
@@ -60,7 +60,7 @@ export const ContactEdit= (props) => {
                 editContact(contact)
                     .then(()=> history.push("/contacts"))
             }}
-            className = "contactButton">Save Contact</button>
+            className="btn btn-secondary">Save Contact</button>
 
         </form>
     )}

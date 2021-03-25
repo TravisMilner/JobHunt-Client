@@ -1,0 +1,65 @@
+.job--card {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    
+}
+
+.job {
+    background-color: white;
+    height: 100px;
+    width: 75vh;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+    border-radius: 15px;
+    flex-basis: 20%;
+    margin: 1.5%;
+    padding: .5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    
+
+    
+   
+    
+}
+
+.job__notes {
+    
+   
+    max-width: 700px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.4);
+    border-radius: 20px;
+    padding: 2rem;
+   
+
+}
+button {
+    margin: 1%
+}
+
+#jobs__head {
+    margin-left: 5%;
+}
+#jobs__new {
+    margin-left: 5%;
+}
+#comp_head {
+    margin-left: 5%;
+}
+#comp__new {
+    margin-left: 5%;
+}
+
+#contactHead {
+    margin-left: 5%;
+}
+
+#contactNew {
+    margin-left: 5%;
+}
+
+#newButton {
+    margin-top: 30px; 
+}
